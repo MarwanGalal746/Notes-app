@@ -35,8 +35,8 @@
 >
 > - To list all notes:
 >
->   ​	`$ node app.js add --title="your own note title"`
+>   ​	`$ node app.js list`
 >
 > - To read a note:
 >
->   ​	`$ node app.js add --title="your own note title"`
+>   ​	`$ node app.js read --title="your own note title"`
