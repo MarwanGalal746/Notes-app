@@ -3,8 +3,8 @@ const fs = require('fs');
 
 const addNote = function(title, body) {
     const notes = loadNotes();
-    const duplicate  = notes.filter( (note) => note.title === title)
-    if(duplicate.length === 0 ){
+    const duplicate  = notes.find( (note) => note.title === title)
+    if(!duplicate){
         notes.push({
             title: title,
             body:body
@@ -44,7 +44,26 @@ const removeNote = (title) => {
     }
 }
 
+const listNotes = () => {
+    const notes = loadNotes();
+    console.log(chalk.inverse('Your notes: '));
+    notes.forEach((note) => console.log(note.title));
+}
+
+const readNote = (title) => {
+    const notes = loadNotes();
+    const orderedNote = notes.find((note) => note.title === title);
+    if(orderedNote){
+        console.log(chalk.inverse(orderedNote.title));
+        console.log(orderedNote.body);
+    } else {
+        console.log(chalk.bgRed('Note note found!'))
+    }
+}
+
 module.exports = {
     addNote : addNote,
     removeNote : removeNote,
+    listNotes : listNotes,
+    readNote : readNote
 }
