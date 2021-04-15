@@ -75,7 +75,5 @@ yargs.command({
     }
 })
 
-//console.log(process.argv)
-//console.log(yargs.argv)
 yargs.parse()
 
